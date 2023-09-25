@@ -1,0 +1,91 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color:#1C1C1C;
+    width: 500px;
+    height: 800px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 5%;
+}
+
+#row0{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+#row1{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+#row2{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+#row3{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+#row4{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+#row5{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.dgButton{
+    flex-grow: 1;
+    width:124px;
+    background-color: #505050;
+    border: solid 1px #1C1C1C;
+    color: white;
+    font-size: 50px;
+}
+
+.gButton{
+    flex-grow: 1;
+    width:124px;
+    background-color: #D4D4D2;
+    border: solid 1px #1C1C1C;
+    color: white;
+    font-size: 50px;
+}
+
+.orangeButton{
+    flex-grow: 1;
+    width:124px;
+    background-color: #FF9500;
+    border: solid 1px #1C1C1C;
+    color: white;
+    font-size: 50px;
+}
+
+.display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-grow: 1;
+    min-height: 50px;
+    font-size: 50px;
+}
