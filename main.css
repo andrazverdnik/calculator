@@ -53,10 +53,10 @@ body{
     flex-grow: 1;
 }
 
-.dgButton{
+.pgButton{
     flex-grow: 1;
     width:124px;
-    background-color: #505050;
+    background-color: #D4D4D2;
     border: solid 1px #1C1C1C;
     color: white;
     font-size: 50px;
@@ -65,7 +65,7 @@ body{
 .gButton{
     flex-grow: 1;
     width:124px;
-    background-color: #D4D4D2;
+    background-color: #505050;
     border: solid 1px #1C1C1C;
     color: white;
     font-size: 50px;
