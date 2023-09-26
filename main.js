@@ -1,3 +1,4 @@
+//Constants
 const zeroButton = document.getElementById("0")
 const oneButton = document.getElementById("1")
 const twoButton = document.getElementById("2")
@@ -15,8 +16,10 @@ const reductionButton = document.getElementById("reduction")
 const additionButton = document.getElementById("addition")
 const equalButton = document.getElementById("equal")
 
+//Variables
 
 
+//Function definitions
 
 function animateG(element){
     element.addEventListener("click", ()=>{
@@ -61,6 +64,9 @@ animateG(nineButton)
 animateG(ACButton)
 }
 
+
+
+//Function running
 
 animateButtons()
 
