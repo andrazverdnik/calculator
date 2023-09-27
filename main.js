@@ -166,7 +166,7 @@ function checkForClick (){
     })
 }
 
-function animateButtons(){
+function checkForPresses(){
     checkForClick()
     checkForKeyPress()
 }
@@ -175,5 +175,4 @@ function animateButtons(){
 
 //Function running
 
-animateButtons()
-checkForKeyPress()
+checkForPresses()
