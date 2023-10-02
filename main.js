@@ -20,6 +20,7 @@ const display = document.getElementById("display")
 //Variables
 
 let firstNumber = ""
+result = ""
 let secondNumber = ""
 let operator = ""
 let currentNumberChecking = 1
@@ -230,19 +231,19 @@ function checkForPresses(){
 }
 
 function add(a,b){
-    return a+b
+    result = a+b
 }
 
 function reduce(a,b){
-    return a-b
+    result = a-b
 }
 
 function multiply(a,b){
-    return a*b
+    result = a*b
 }
 
 function divide(a,b){
-    return a/b
+    result =  a/b
 }
 
 function ac(){
@@ -261,9 +262,20 @@ function addToNumber(number){
     }
 }
 
+function operatorPressed(input){
+    if(currentNumberChecking == 1){
+        operator = input
+        currentNumberChecking == 2
+        updateDisplay()
+    }
+}
+
 function updateDisplay(){
     if(currentNumberChecking == 1){
         display.textContent = firstNumber;
+    }
+    if(currentNumberChecking ==2){
+        display.textContent = secondNumber;
     }
 }
 
