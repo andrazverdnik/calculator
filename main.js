@@ -309,6 +309,9 @@ function calculate(){
             add(parseInt(firstNumber), parseInt(secondNumber))
         }
         result = parseFloat(result.toFixed(1))
+        if(result.toString().length>16){
+            result = parseFloat(result.toString().slice(0,16))
+        }
         currentStage = 3
         updateDisplay()
     }   
@@ -317,12 +320,14 @@ function calculate(){
 function operatorPressed(input){
     
     if(currentStage == 2){
-        console.log("Test")
+        
     }
     if(currentStage == 1){
-        operator = input
+            operator = input
         currentStage = 2
         updateDisplay()
+        operatorChain = false
+        
     }
 }
 
