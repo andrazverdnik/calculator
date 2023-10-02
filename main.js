@@ -20,7 +20,7 @@ const display = document.getElementById("display")
 //Variables
 
 let firstNumber = ""
-result = ""
+let result = ""
 let secondNumber = ""
 let operator = ""
 let currentNumberChecking = 1
