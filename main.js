@@ -23,7 +23,7 @@ let firstNumber = ""
 let result = ""
 let secondNumber = ""
 let operator = ""
-let currentNumberChecking = 1
+let currentStage = 1
 
 //Function definitions
 
@@ -108,22 +108,27 @@ function checkForKeyPress (){
             case "/":
                 console.log("/")
                 animateO(divisionButton)
+                operatorPressed("/")
                 break
             case "x":
                 console.log("x")
                 animateO(multiplicationButton)
+                operatorPressed("x")
                 break
             case "-":
                 console.log("-")
                 animateO(reductionButton)
+                operatorPressed("-")
                 break
             case "=":
                 console.log("+")
+                operatorPressed("+")
                 animateO(additionButton)
                 break
             case "Enter":
                 console.log("=")
                 animateO(equalButton)
+                calculate()
                 break
             }
     }
@@ -210,18 +215,23 @@ function checkForClick (){
     })
     divisionButton.addEventListener("click", ()=>{
         animateO(divisionButton)
+        operatorPressed("/")
     })
     multiplicationButton.addEventListener("click", ()=>{
         animateO(multiplicationButton)
+        operatorPressed("x")
     })
     additionButton.addEventListener("click", ()=>{
         animateO(additionButton)
+        operatorPressed("+")
     })
     reductionButton.addEventListener("click", ()=>{
         animateO(reductionButton)
+        operatorPressed("-")
     })
     equalButton.addEventListener("click", ()=>{
         animateO(equalButton)
+        calculate()
     })
 }
 
@@ -247,35 +257,65 @@ function divide(a,b){
 }
 
 function ac(){
+    result = ""
     firstNumber = ""
     secondNumber = ""
     operator = ""
-    currentNumberChecking = 1
+    currentStage = 1
 }
 
 function addToNumber(number){
-    if(currentNumberChecking == 1){
+    if(currentStage == 1){
         if(firstNumber.length<17){
             firstNumber = firstNumber+number
             console.log(firstNumber)
         }
     }
+    if(currentStage == 2){
+        if(secondNumber.length<17){
+            secondNumber = secondNumber+number
+            console.log(secondNumber)
+        }
+    }
+}
+
+function calculate(){
+    if(currentStage == 2){
+        if(operator == "/"){
+            divide(parseInt(firstNumber), parseInt(secondNumber))
+        }else if(operator == "x"){
+            multiply(parseInt(firstNumber), parseInt(secondNumber))
+        }else if(operator == "-"){
+            reduce(parseInt(firstNumber), parseInt(secondNumber))
+        }else if(operator == "+"){
+            add(parseInt(firstNumber), parseInt(secondNumber))
+        }
+        result = Math.round(result)
+        currentStage = 3
+        updateDisplay()
+    }   
 }
 
 function operatorPressed(input){
-    if(currentNumberChecking == 1){
+    if(currentStage == 1){
         operator = input
-        currentNumberChecking == 2
+        currentStage = 2
         updateDisplay()
+    }
+    if(currentStage == 2){
+        
     }
 }
 
 function updateDisplay(){
-    if(currentNumberChecking == 1){
+    if(currentStage == 1){
         display.textContent = firstNumber;
     }
-    if(currentNumberChecking ==2){
+    if(currentStage == 2){
         display.textContent = secondNumber;
+    }
+    if(currentStage == 3){
+        display.textContent = result
     }
 }
 
