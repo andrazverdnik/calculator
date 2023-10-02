@@ -277,6 +277,15 @@ function addToNumber(number){
             console.log(secondNumber)
         }
     }
+    if(currentStage == 3){
+        result = ""
+        firstNumber = ""
+        secondNumber = ""
+        operator = ""
+        currentStage = 1
+        firstNumber = firstNumber+number
+        console.log(firstNumber)
+    }
 }
 
 function calculate(){
