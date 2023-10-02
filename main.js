@@ -15,9 +15,14 @@ const multiplicationButton = document.getElementById("multiplication")
 const reductionButton = document.getElementById("reduction")
 const additionButton = document.getElementById("addition")
 const equalButton = document.getElementById("equal")
+const display = document.getElementById("display")
 
 //Variables
 
+let firstNumber = ""
+let secondNumber = ""
+let operator = ""
+let currentNumberChecking = 1
 
 //Function definitions
 
@@ -27,45 +32,76 @@ function checkForKeyPress (){
             case "0":
                 console.log("0")
                 animateG(zeroButton)
+                addToNumber("0")
+                updateDisplay()
                 break
             case "1":
                 console.log("1")
                 animateG(oneButton)
+                addToNumber("1")
+                updateDisplay()
+                
                 break
             case "2":
                 console.log("2")
                 animateG(twoButton)
+                addToNumber("2")
+                updateDisplay()
+                
                 break
             case "3":
                 console.log("3")
                 animateG(threeButton)
+                addToNumber("3")
+                updateDisplay()
+                
                 break
             case "4":
                 console.log("4")
                 animateG(fourButton)
+                addToNumber("4")
+                updateDisplay()
+                
                 break
             case "5":
                 console.log("5")
                 animateG(fiveButton)
+                addToNumber("5")
+                updateDisplay()
+                
                 break
             case "6":
                 console.log("6")
                 animateG(sixButton)
+                addToNumber("6")
+                updateDisplay()
+                
                 break
             case "7":
                 console.log("7")
                 animateG(sevenButton)
+                addToNumber("7")
+                updateDisplay()
+                
                 break
             case "8":
                 console.log("8")
                 animateG(eightButton)
+                addToNumber("8")
+                updateDisplay()
+                
                 break
             case "9":
                 console.log("9")
                 animateG(nineButton)
+                addToNumber("9")
+                updateDisplay()
+                
                 break
             case "Backspace":
                 console.log("delete")
+                ac()
+                updateDisplay()
                 animateG(ACButton)
                 break
             case "/":
@@ -118,35 +154,57 @@ function animateO(element){
 function checkForClick (){
     zeroButton.addEventListener("click", ()=>{
         animateG(zeroButton)
+        addToNumber("0")
+        updateDisplay()
     })
     oneButton.addEventListener("click", ()=>{
         animateG(oneButton)
+        addToNumber("1")
+        updateDisplay()
     })
     twoButton.addEventListener("click", ()=>{
         animateG(twoButton)
+        addToNumber("2")
+        updateDisplay()
     })
     threeButton.addEventListener("click", ()=>{
         animateG(threeButton)
+        addToNumber("3")
+        updateDisplay()
     })
     fourButton.addEventListener("click", ()=>{
         animateG(fourButton)
+        addToNumber("4")
+        updateDisplay()
     })
     fiveButton.addEventListener("click", ()=>{
         animateG(fiveButton)
+        addToNumber("5")
+        updateDisplay()
     })
     sixButton.addEventListener("click", ()=>{
         animateG(sixButton)
+        addToNumber("6")
+        updateDisplay()
     })
     sevenButton.addEventListener("click", ()=>{
         animateG(sevenButton)
+        addToNumber("7")
+        updateDisplay()
     })
     eightButton.addEventListener("click", ()=>{
         animateG(eightButton)
+        addToNumber("8")
+        updateDisplay()
     })
     nineButton.addEventListener("click", ()=>{
         animateG(nineButton)
+        addToNumber("9")
+        updateDisplay()
     })
     ACButton.addEventListener("click", ()=>{
+        ac()
+        updateDisplay()
         animateG(ACButton)
     })
     divisionButton.addEventListener("click", ()=>{
@@ -171,7 +229,43 @@ function checkForPresses(){
     checkForKeyPress()
 }
 
+function add(a,b){
+    return a+b
+}
 
+function reduce(a,b){
+    return a-b
+}
+
+function multiply(a,b){
+    return a*b
+}
+
+function divide(a,b){
+    return a/b
+}
+
+function ac(){
+    firstNumber = ""
+    secondNumber = ""
+    operator = ""
+    currentNumberChecking = 1
+}
+
+function addToNumber(number){
+    if(currentNumberChecking == 1){
+        if(firstNumber.length<17){
+            firstNumber = firstNumber+number
+            console.log(firstNumber)
+        }
+    }
+}
+
+function updateDisplay(){
+    if(currentNumberChecking == 1){
+        display.textContent = firstNumber;
+    }
+}
 
 //Function running
 
