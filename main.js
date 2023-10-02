@@ -299,7 +299,7 @@ function calculate(){
         }else if(operator == "+"){
             add(parseInt(firstNumber), parseInt(secondNumber))
         }
-        result = Math.round(result)
+        result = parseFloat(result.toFixed(1))
         currentStage = 3
         updateDisplay()
     }   
