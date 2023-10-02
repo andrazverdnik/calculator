@@ -290,8 +290,17 @@ function addToNumber(number){
 
 function calculate(){
     if(currentStage == 2){
+        if(secondNumber == ""){
+            secondNumber = 0
+        }
+        if(firstNumber == ""){
+            firstNumber = 0
+        }
         if(operator == "/"){
             divide(parseInt(firstNumber), parseInt(secondNumber))
+            if(secondNumber == 0){
+                result = 69
+            }
         }else if(operator == "x"){
             multiply(parseInt(firstNumber), parseInt(secondNumber))
         }else if(operator == "-"){
@@ -306,13 +315,14 @@ function calculate(){
 }
 
 function operatorPressed(input){
+    
+    if(currentStage == 2){
+        console.log("Test")
+    }
     if(currentStage == 1){
         operator = input
         currentStage = 2
         updateDisplay()
-    }
-    if(currentStage == 2){
-        
     }
 }
 
