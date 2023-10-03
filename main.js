@@ -24,7 +24,8 @@ let result = ""
 let secondNumber = ""
 let operator = ""
 let currentStage = 1
-
+let twoChain = false
+let threeChain = false
 //Function definitions
 
 function checkForKeyPress (){
@@ -261,6 +262,8 @@ function ac(){
     firstNumber = ""
     secondNumber = ""
     operator = ""
+    twoChain = false
+    threeChain = false
     currentStage = 1
 }
 
@@ -278,6 +281,7 @@ function addToNumber(number){
         }
     }
     if(currentStage == 3){
+        if(twoChain == false && threeChain == false){
         result = ""
         firstNumber = ""
         secondNumber = ""
@@ -285,6 +289,24 @@ function addToNumber(number){
         currentStage = 1
         firstNumber = firstNumber+number
         console.log(firstNumber)
+        } else if(twoChain == true){
+            firstNumber = result
+            result = ""
+            secondNumber = ""+number
+            currentStage = 2
+            twoChain = false
+            updateDisplay()
+        } else if(threeChain == true){
+            console.log("rezultat je", result)
+            firstNumber = result
+            result = ""
+            secondNumber = ""+number
+            currentStage = 2
+            updateDisplay()
+            threeChain = false
+
+        }
+        
     }
 }
 
@@ -320,14 +342,25 @@ function calculate(){
 function operatorPressed(input){
     
     if(currentStage == 2){
+        calculate()
+        console.log("operator in st2")
+        operator = input
+        twoChain = true
+        threeChain = false
+    } else if(currentStage == 3){
+        console.log("operator in st3")
+        operator = input
+        twoChain = false
+        threeChain = true
         
-    }
-    if(currentStage == 1){
-            operator = input
+        updateDisplay()
+    } else if(currentStage == 1){
+        console.log("operator in st1")
+        operator = input
+        twoChain = true
+        threeChain = false
         currentStage = 2
         updateDisplay()
-        operatorChain = false
-        
     }
 }
 
